@@ -67,7 +67,7 @@ if (repotype == "local") {
 } else if (repotype == "virtual") {
     artifactory(art1.name) {
         virtualRepository(repokeyArt1){
-            repositories includedrepos
+            repositories repolist
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
