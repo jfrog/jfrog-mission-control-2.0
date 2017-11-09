@@ -40,6 +40,11 @@ permissionName = userInput (
     description : "Please provide a permission name"
 )
 
+permissions = userInput(
+ type: "STRING",
+ description : "Please enter the permissions that need to be granted ('manage', 'delete', 'deploy', 'annotate', 'read'))"
+)
+
 
 repoNames = userInput (
     type : "STRING", 
@@ -95,10 +100,13 @@ def localName = repokey + "-" + packagetype + "-" + maturity + "-" + location
       anyDistribution false
       repositories (repoNames.split(",") as List) 
       users {
-        methodMissing(userName, [['manage', 'delete', 'deploy', 'annotate', 'read']]) // value userA - is example. Please set existing user names from the instance
+          "$userName" (permissions.split(",") as List) 
       }
       groups {
-        methodMissing( groupNames , [['manage', 'delete', 'deploy', 'annotate', 'read']]) // value groupsG1 - is example. Please set existing group names from the instance
+        def myGroups = groupNames.split(",") as List
+        myGroups.each {
+          "$it" (permissions.split(",") as List)
+        }
       }
     }
   }
