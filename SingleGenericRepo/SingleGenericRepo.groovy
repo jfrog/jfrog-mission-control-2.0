@@ -66,9 +66,11 @@ if (repotype == "local") {
         }
     }
 } else if (repotype == "virtual") {
-    artifactory(art1.name) {
+  def includedRepos = repolist.split(",")*.trim()
+  
+  	artifactory(art1.name) {
         virtualRepository(repokeyArt1){
-            repositories repolist.split(",")*.trim()
+            repositories includedRepos
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
