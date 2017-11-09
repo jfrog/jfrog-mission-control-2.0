@@ -16,17 +16,19 @@ repotype = userInput (
     description : "Repository Type",
 )
 
-//packagetype
+//select packagetype
 packagetype = userInput (
     type : "PACKAGE_TYPE",
     description : "Package Type",
 )
 
+//url of the repository you are proxying
 remoteUrl = userInput (
     type : "STRING",
     description : "Enter remote URL (for remotes only)",
 )
 
+//default deploy repository
 defaultDeploy = userInput (
        type : "STRING",
         description : "Enter default deploy repository key (virtual only)",
@@ -76,5 +78,3 @@ if (repotype == "local") {
         }
     }
 }
-
-
