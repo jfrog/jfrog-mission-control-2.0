@@ -40,7 +40,6 @@ repolist = userInput (
         description : "Enter repository keys separated by commas (virtual only)",
     )
 
-includedrepos = repolist.split(",")*.trim()
 
 if (repotype == "local") {
     artifactory(art1.name) {
@@ -69,7 +68,7 @@ if (repotype == "local") {
 } else if (repotype == "virtual") {
     artifactory(art1.name) {
         virtualRepository(repokeyArt1){
-            repositories includedrepos
+            repositories repolist.split(",")*.trim()
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
