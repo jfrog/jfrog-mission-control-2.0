@@ -1,3 +1,4 @@
+// Script to create a user,group, local repo and permissions.
 repokey = userInput (
     type : "STRING", 
     description : "Please provide a Repository Key"
