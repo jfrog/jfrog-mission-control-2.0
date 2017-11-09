@@ -1,4 +1,4 @@
-Single Generic Repo
+Single Repo
 ===================
 
 Overview
@@ -29,9 +29,14 @@ User Inputs
 
   URL as a String that the remote repository will be proxying
 
+- defaultDeploy (only for Virtual repositories)
+  A String of the repository key you want to be the target or deploys using the virtual repository URL
+
 - Repolist (only for Virtual repositories)
 
   A String of repositories you want contained in your virtual repository.  Generates list
+
+
 
 Additional parameters for each repository type can be found at: https://www.jfrog.com/confluence/display/MC/Configuration+DSL+2.0#ConfigurationDSL2.0-RepositoryConfigurationBlocks
 

@@ -27,10 +27,16 @@ remoteUrl = userInput (
     description : "Enter remote URL (for remotes only)",
 )
 
+defaultDeploy = userInput (
+       type : "STRING",
+        description : "Enter default deploy repository key (virtual only)",
+    )
+
+
 repolist = userInput (
-    type : "STRING",
-    description : "Enter repository keys separated by commas",
-)
+       type : "STRING",
+        description : "Enter repository keys separated by commas (virtual only)",
+    )
 
 if (repotype == "local") {
     artifactory(art1.name) {
@@ -58,14 +64,15 @@ if (repotype == "local") {
     }
 } else if (repotype == "virtual") {
     artifactory(art1.name) {
-        virtualRepository(repokeyArt1) {
-            repositories repolist.split(",")*.trim()
+        virtualRepository(repokeyArt1){
+            repositories includedrepos
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
             debianTrivialLayout false
             artifactoryRequestsCanRetrieveRemoteArtifacts false
             pomRepositoryReferencesCleanupPolicy "discard_active_reference" // default | "discard_any_reference" | "nothing"
+            defaultDeploymentRepo defaultDeploy
         }
     }
 }
