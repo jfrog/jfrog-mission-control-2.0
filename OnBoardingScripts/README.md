@@ -28,7 +28,7 @@ User Inputs
 
 - Instances
 
-  A list of Artifactory instances to execute this script
+  A list of Artifactory instances to execute this script.
 
 - User Name
 
