@@ -10,11 +10,11 @@ creating a repo, adding users,group and permission target
 User Inputs
 -----------
 
-- repokey
+- RepoKey
 
   The base name of the repository to create.
   
-- maturity
+- Maturity
 
   The repository maturity in terms which stage in the lifecycle is the project in (For Example dev,stage,pre-prod,prod,release).
 
@@ -22,7 +22,7 @@ User Inputs
 
   The repository's package type. Select from the dropdown list.
   
-- location
+- Location
    
    The type of the repository for example local, virtual.
 
@@ -30,23 +30,25 @@ User Inputs
 
   A list of Artifactory instances to execute this script
 
-- userName
+- User Name
 
    The name of the user to be created.
 
-- groupNames
+- Group Names
 
    The name of the group to be created. (devgroup,qagroup)
+   Note the group names can be comma separated.
 
-- permissionName
+- Permission Name
 
    The name of the permission which can be applied to users
 
-- permissions
+- Permissions
 
-   Permissions to be applied.('manage', 'delete', 'deploy', 'annotate', 'read')
+   Permissions to be applied.('manage', 'delete', 'deploy', 'annotate', 'read') 
+   Note the permissions can be comma separated.
 
-- repoNames
+- Repository Names
 
     Specific repositories on which to apply the permission target. This is a comma separated value.
 
