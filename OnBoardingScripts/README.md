@@ -52,4 +52,4 @@ User Inputs
 
     Specific repositories on which to apply the permission target. This is a comma separated value.
 
-Additional information can be found at:https://www.jfrog.com/confluence/display/MC/Configuration+DSL+2.0
+Additional information can be found at : https://www.jfrog.com/confluence/display/MC/Configuration+DSL+2.0
