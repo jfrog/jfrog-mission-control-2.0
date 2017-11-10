@@ -30,15 +30,14 @@ remoteUrl = userInput (
 
 //default deploy repository
 defaultDeploy = userInput (
-       type : "STRING",
-        description : "Enter default deploy repository key (virtual only)",
-    )
-
+    type : "STRING",
+    description : "Enter default deploy repository key (virtual only)",
+)
 
 repolist = userInput (
-       type : "STRING",
-        description : "Enter repository keys separated by commas (virtual only)",
-    )
+    type : "STRING",
+    description : "Enter repository keys separated by commas (virtual only)",
+)
 
 
 if (repotype == "local") {
@@ -66,9 +65,8 @@ if (repotype == "local") {
         }
     }
 } else if (repotype == "virtual") {
-  def includedRepos = repolist.split(",")*.trim()
-  
-  	artifactory(art1.name) {
+    def includedRepos = repolist.split(",")*.trim()
+    artifactory(art1.name) {
         virtualRepository(repokeyArt1){
             repositories includedRepos
             description "Public description"

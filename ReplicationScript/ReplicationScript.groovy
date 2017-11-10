@@ -9,7 +9,7 @@ repokey = userInput (
     description : "Please provide the target Repository you want to host the replication",
 )
 
-replicationType  = userInput (
+replicationType = userInput (
     type : "STRING",
     description : "Please specify push or pull replication",
 )
