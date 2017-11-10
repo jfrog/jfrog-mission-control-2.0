@@ -39,6 +39,15 @@ repolist = userInput (
     description : "Enter repository keys separated by commas (virtual only)",
 )
 
+// Choose the correct default layout based on the repository type
+def getRepoLayout(rtype) {
+    def specialtypes = ["bower", "gradle", "ivy", "npm", "nuget", "sbt", "vcs", "composer", "conan", "puppet"]
+    if (rtype == "maven") return "maven-2-default"
+    else if (rtype in specialtypes) return rtype + "-default"
+    else return "simple-default"
+}
+
+def layout = getRepoLayout(packagetype)
 
 if (repotype == "local") {
     artifactory(art1.name) {
@@ -47,6 +56,7 @@ if (repotype == "local") {
             notes "Some internal notes"
             archiveBrowsingEnabled false
             packageType packagetype
+            repoLayoutRef layout
         }
     }
 } else if (repotype == "remote") {
@@ -58,6 +68,7 @@ if (repotype == "local") {
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
+            repoLayoutRef layout
             remoteRepoChecksumPolicyType "generate-if-absent" // default | "fail" | "ignore-and-generate" | "pass-thru"
             xrayIndex false
             blockXrayUnscannedArtifacts false
@@ -72,6 +83,7 @@ if (repotype == "local") {
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
+            repoLayoutRef layout
             debianTrivialLayout false
             artifactoryRequestsCanRetrieveRemoteArtifacts false
             pomRepositoryReferencesCleanupPolicy "discard_active_reference" // default | "discard_any_reference" | "nothing"
