@@ -51,7 +51,7 @@ permissionName = userInput (
 permissions = userInput (
   type : "STRING",
   name : "Permissions",
-  description : "Please enter the permissions that need to be granted ('manage', 'delete', 'deploy', 'annotate', 'read') comma separated, if multiple permissions need to be granted"
+  description : "Please enter the permissions that need to be granted (manage,delete,deploy,annotate,read) comma separated, if multiple permissions need to be granted"
 )
 
 repoNames = userInput (
