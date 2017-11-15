@@ -1,4 +1,4 @@
-// Script to create a user, group, local repository and permissions.
+//Script to create a user, group, local repository and permissions.
 repokey = userInput (
   type : "STRING",
   name : "RepoKey",
