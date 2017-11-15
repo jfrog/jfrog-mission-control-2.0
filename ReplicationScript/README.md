@@ -4,7 +4,22 @@ Replication Script
 Overview
 --------
 
-This script takes user inputs and configures replication.  Users may be required to add more parameters and/or access the UI to fine tune Repository configuration.
+This script takes user inputs and configures replication.  Users may be required to add more parameters and/or access the UI to fine tune Repository configuration. 
+
+
+Instructions
+------------
+
+This Script requires a pre-existing remote or local repository.
+This script configures the "host" repository for replication.  A host repository hosts the replication configuration information.  
+Select your host artifactory instance and host repository
+	
+	-For push, you will need to specify your target URL
+	-For push you will need to specify your package type
+
+Configure additional parameters as found here:
+https://www.jfrog.com/confluence/display/RTF/Repository+Configuration+JSON#RepositoryConfigurationJSON-RepositoryConfigurationJSON
+
 
 User Inputs
 -----------
@@ -19,14 +34,11 @@ User Inputs
 
 - replicationtype
 
-  User specifies "push" or pull replication.
-
-- packagetype
-  Specify which   package type you will be using
+  User specifies "push" or "pull" replication.
 
 - replicationUrl
 
-  User provides a string of a repository URL.  For Pull, provide the URL of the repository you want to proxy (required).  For push, specify the target URL.
+  User provides a string of a repository URL.  For Pull, this is not needed.  For push, specify the target URL.
 
 - eventbased
 
