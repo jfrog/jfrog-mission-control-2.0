@@ -15,7 +15,7 @@ User Inputs
 
 - Maturity
 
-  The repository's maturity, in terms of its stage in the project lifecycle (for example: dev,stage,pre-prod,prod,release).
+  The repository's maturity, in terms of its stage in the project lifecycle (for example: dev,stage,pre-prod,prod and release).
 
 - Package Type
 
