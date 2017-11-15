@@ -16,6 +16,7 @@ replicationType = userInput (
 
 replicationUrl = userInput (
     type : "STRING",
+    value : " ",
     description : "For pull, specify the URL of the repository you want to Proxy. For push, speicify target repository URL",
 )
 
@@ -24,22 +25,39 @@ eventBased = userInput (
     description : "event based replication?"
 )
 
+packagetype = userInput (
+    type : "PACKAGE_TYPE",
+    description : "select package type",
+)
+
 if (replicationType == "pull") {
-    artifactory(art1.name) {
-        remoteRepository(repokey) {
-            replication (replicationUrl) {
-                cronExp "0 0/9 14 * * ?"
-                socketTimeoutMillis 15000
-                username "remote-repo-user"
-                password "pass"
-                enableEventReplication eventBased
-                enabled true
-                syncDeletes false
-                syncProperties true
-                clientTlsCertificate ""
+    if (replicationUrl == " ") {
+
+        throw new RuntimeException("Please provide URL or repository you want to proxy")
+
+    }else{
+        artifactory(art1.name) {
+            remoteRepository(repokey) {
+
+                url replicationUrl
+                packageType packagetype
+
+                replication (replicationUrl) {
+                    cronExp "0 0/9 14 * * ?"
+                    socketTimeoutMillis 15000
+                    username "remote-repo-user"
+                    password "pass"
+                    enableEventReplication eventBased
+                    enabled true
+                    syncDeletes false
+                    syncProperties true
+                    clientTlsCertificate ""
+                }
             }
         }
     }
+
+
 } else if (replicationType == "push") {
     artifactory(art1.name) {
         localRepository(repokey) {

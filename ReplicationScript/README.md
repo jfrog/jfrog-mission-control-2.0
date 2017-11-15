@@ -21,9 +21,12 @@ User Inputs
 
   User specifies "push" or pull replication.
 
+- packagetype
+  Specify which   package type you will be using
+
 - replicationUrl
 
-  User provides a string of a repository URL.  For Pull, provide the URL of the repository you want to proxy.  For push, specify the target URL.
+  User provides a string of a repository URL.  For Pull, provide the URL of the repository you want to proxy (required).  For push, specify the target URL.
 
 - eventbased
 
