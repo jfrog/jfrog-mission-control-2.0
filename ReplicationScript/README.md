@@ -50,4 +50,4 @@ Here are some additional parameters that must be configured for each repo type t
 
 - username/password
 
-  If required, please provide the credentials for the artifactory instances
+  If required, please provide the credentials for the artifactory instance
