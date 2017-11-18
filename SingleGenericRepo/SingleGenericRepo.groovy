@@ -25,17 +25,20 @@ packagetype = userInput (
 //url of the repository you are proxying
 remoteUrl = userInput (
     type : "STRING",
+    value : " ",
     description : "Enter remote URL (for remotes only)",
 )
 
 //default deploy repository
 defaultDeploy = userInput (
     type : "STRING",
+    value : " ",
     description : "Enter default deploy repository key (virtual only)",
 )
 
 repolist = userInput (
     type : "STRING",
+    value : " ",
     description : "Enter repository keys separated by commas (virtual only)",
 )
 
@@ -60,7 +63,11 @@ if (repotype == "local") {
         }
     }
 } else if (repotype == "remote") {
-    artifactory(art1.name) {
+    if (remoteUrl == " ") {
+
+        throw new RuntimeException("Remote Repositories require URL of a central/source repository")
+
+    }else{artifactory(art1.name) {
         remoteRepository(repokeyArt1) {
             url remoteUrl
             username "remote-repo-user"
@@ -73,10 +80,18 @@ if (repotype == "local") {
             xrayIndex false
             blockXrayUnscannedArtifacts false
             enableFileListsIndexing ""
-        }
+            }
+        }   
     }
+    
 } else if (repotype == "virtual") {
-    def includedRepos = repolist.split(",")*.trim()
+
+    if (repolist = " ") {
+
+        throw new RuntimeException("Virtual Repositories require at least 1 repository nested inside")
+
+    }else{
+        def includedRepos = repolist.split(",")*.trim()
     artifactory(art1.name) {
         virtualRepository(repokeyArt1){
             repositories includedRepos
@@ -88,6 +103,9 @@ if (repotype == "local") {
             artifactoryRequestsCanRetrieveRemoteArtifacts false
             pomRepositoryReferencesCleanupPolicy "discard_active_reference" // default | "discard_any_reference" | "nothing"
             defaultDeploymentRepo defaultDeploy
+            }
         }
     }
+
+    
 }
