@@ -36,6 +36,18 @@ defaultDeploy = userInput (
     description : "Enter default deploy repository key (virtual only)",
 )
 
+
+userName = userInput (
+    type : "STRING",
+    description : "Enter the username for the remote credentials",
+)
+
+
+pass = userInput (
+    type : "STRING",
+    description : "Enter the password for the remote credentials",
+)
+
 repolist = userInput (
     type : "STRING",
     value : " ",
@@ -70,8 +82,8 @@ if (repotype == "local") {
     }else{artifactory(art1.name) {
         remoteRepository(repokeyArt1) {
             url remoteUrl
-            username "remote-repo-user"
-            password "pass"
+            username userName
+            password pass
             description "Public description"
             notes "Some internal notes"
             packageType packagetype
