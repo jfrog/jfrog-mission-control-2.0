@@ -5,7 +5,7 @@ JFMC2.0 Scripts
 # Synopsis
 
 This project contains sample scripts which can be executed via JFMC2.0 
-The samples include scripts which can be used to onboard projects, create push or pull replication between artifactory services or create topologies (star/mesh).
+The samples include scripts which can be used to onboard projects, create push or pull replication between Artifactory services or create topologies (star/mesh).
 
 # Motivation
 
