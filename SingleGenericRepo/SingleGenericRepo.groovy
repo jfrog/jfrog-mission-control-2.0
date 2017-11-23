@@ -86,7 +86,7 @@ if (repotype == "local") {
     
 } else if (repotype == "virtual") {
 
-    if (repolist = " ") {
+    if (repolist == " ") {
 
         throw new RuntimeException("Virtual Repositories require at least 1 repository nested inside")
 
