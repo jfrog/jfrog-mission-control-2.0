@@ -3,3 +3,10 @@ whichArtifactory = userInput (
     name : "Which Artifactory",
     description : "Please specify the Artifactory service on which to create the repository"
   )
+
+artifactory($whichArtifactory){
+   localRepository("docker-local") {
+     packageType "docker"
+     description "My local Docker registry"
+   }
+}
