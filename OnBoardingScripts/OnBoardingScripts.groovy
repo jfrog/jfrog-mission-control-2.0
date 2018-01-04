@@ -63,21 +63,12 @@ repoNames = userInput (
 //team-technology-maturity-location
 def localName = repokey + "-" + packagetype + "-" + maturity + "-" + location
 
-// Choose the correct default layout based on the repository type
-def getRepoLayout(rtype) {
-  def specialtypes = ["bower", "gradle", "ivy", "npm", "nuget", "sbt", "vcs", "composer", "conan", "puppet"]
-  if (rtype == "maven") return "maven-2-default"
-  else if (rtype in specialtypes) return rtype + "-default"
-  else return "simple-default"
-}
-
 artifactory(art.name) {
   localRepository(localName) {
     description "Public description"
     notes "Some internal notes"
     archiveBrowsingEnabled false
     packageType packagetype
-    repoLayoutRef getRepoLayout(packagetype)
   }
   security {
     groups {
