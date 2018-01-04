@@ -42,7 +42,7 @@ if (replicationType == "pull") {
                 url replicationUrl
                 packageType packagetype
 
-                replication (replicationUrl) {
+                replication() {
                     cronExp "0 0/9 14 * * ?"
                     socketTimeoutMillis 15000
                     username "remote-repo-user"
@@ -51,7 +51,6 @@ if (replicationType == "pull") {
                     enabled true
                     syncDeletes false
                     syncProperties true
-                    clientTlsCertificate ""
                 }
             }
         }
@@ -70,7 +69,6 @@ if (replicationType == "pull") {
                 enabled true
                 syncDeletes false
                 syncProperties true
-                clientTlsCertificate ""
             }
         }
     }
