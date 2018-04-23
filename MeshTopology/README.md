@@ -23,4 +23,4 @@ User Inputs
 
   A list of Artifactory instances to configure this replication over.
 
-Additional parameters can be found at: https://www.jfrog.com/confluence/display/MC/Configuration+DSL+2.0#ConfigurationDSL2.0-Replication
+Additional parameters can be found at: https://www.jfrog.com/confluence/display/MC/Configuration+DSL
