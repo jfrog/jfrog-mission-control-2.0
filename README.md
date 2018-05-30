@@ -1,4 +1,4 @@
-# JFfrog Mission Control 2.0
+# JFrog Mission Control 2.0
 
 JFMC2.0 Scripts
 
